@@ -1,0 +1,23 @@
+@mixin theme-button {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.25rem 1.5rem;
+  color: black;
+  font-size: 1rem;
+  font-weight: 600;
+  border: 2px solid black;
+  border-radius: 25px;
+  cursor: pointer;
+
+  &:disabled {
+    border: 2px solid #acacac;
+    color: #acacac;
+    cursor: not-allowed;
+  }
+
+  &:active {
+    background-color: #e7e7e7;
+  }
+}
