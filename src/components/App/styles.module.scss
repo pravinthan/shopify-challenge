@@ -29,6 +29,10 @@
       ul {
         width: stretch;
 
+        li:not(:last-child) {
+          margin-bottom: 0.25rem;
+        }
+
         .movie-row {
           width: stretch;
 
@@ -36,10 +40,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-          }
-
-          &:not(:last-child) {
-            margin-bottom: 0.25rem;
           }
 
           .theme-button {
@@ -60,10 +60,10 @@
         margin-bottom: 1rem;
         border-radius: 25px;
         color: white;
-        background-color: #4caf50;
+        background-color: #3a823f;
 
         > .theme-button {
-          background-color: #4caf50;
+          background-color: #3a823f;
           border-color: white;
           color: white;
           margin: auto;

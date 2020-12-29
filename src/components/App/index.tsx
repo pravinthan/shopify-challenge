@@ -165,6 +165,7 @@ const App: React.FC = () => {
                 onChange={(e) => handleSearchChange(e.target.value)}
                 className={styles.search}
                 placeholder="Find a movie here"
+                aria-label="Search"
               />
             </label>
           </div>
@@ -186,24 +187,27 @@ const App: React.FC = () => {
                 <h2>Results for "{searchInput}"</h2>
                 <ul>
                   {searchedMovies.map((searchedMovie) => (
-                    <div className={styles["movie-row"]} key={searchedMovie.id}>
-                      <li>
-                        {searchedMovie.title} ({searchedMovie.releaseYear})
-                      </li>
-                      <button
-                        className={styles["theme-button"]}
-                        onClick={() => handleNominateClick(searchedMovie)}
-                        disabled={
-                          nominatedMovies.length === 5 ||
-                          nominatedMovies.find(
-                            (nominatedMovie) =>
-                              nominatedMovie.id === searchedMovie.id
-                          ) !== undefined
-                        }
+                    <li>
+                      <div
+                        className={styles["movie-row"]}
+                        key={searchedMovie.id}
                       >
-                        Nominate
-                      </button>
-                    </div>
+                        {searchedMovie.title} ({searchedMovie.releaseYear})
+                        <button
+                          className={styles["theme-button"]}
+                          onClick={() => handleNominateClick(searchedMovie)}
+                          disabled={
+                            nominatedMovies.length === 5 ||
+                            nominatedMovies.find(
+                              (nominatedMovie) =>
+                                nominatedMovie.id === searchedMovie.id
+                            ) !== undefined
+                          }
+                        >
+                          Nominate
+                        </button>
+                      </div>
+                    </li>
                   ))}
                 </ul>
               </>
@@ -256,17 +260,20 @@ const App: React.FC = () => {
             {nominatedMovies.length > 0 && (
               <ul>
                 {nominatedMovies.map((nominatedMovie) => (
-                  <div className={styles["movie-row"]} key={nominatedMovie.id}>
-                    <li>
-                      {nominatedMovie.title} ({nominatedMovie.releaseYear})
-                    </li>
-                    <button
-                      className={styles["theme-button"]}
-                      onClick={() => handleRemoveClick(nominatedMovie.id)}
+                  <li>
+                    <div
+                      className={styles["movie-row"]}
+                      key={nominatedMovie.id}
                     >
-                      Remove
-                    </button>
-                  </div>
+                      {nominatedMovie.title} ({nominatedMovie.releaseYear})
+                      <button
+                        className={styles["theme-button"]}
+                        onClick={() => handleRemoveClick(nominatedMovie.id)}
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  </li>
                 ))}
               </ul>
             )}
