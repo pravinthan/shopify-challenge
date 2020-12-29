@@ -52,7 +52,7 @@ const App: React.FC = () => {
           // Call API given the movie ID
           const res = await (
             await fetch(
-              `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&i=${id}`
+              `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&i=${id}`
             )
           ).json();
 
@@ -86,7 +86,7 @@ const App: React.FC = () => {
     // Call API
     const res = await (
       await fetch(
-        `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${val}`
+        `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${val}`
       )
     ).json();
 
